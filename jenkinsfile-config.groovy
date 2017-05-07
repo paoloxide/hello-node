@@ -1,0 +1,6 @@
+ip_DEV_SERVER = "52.214.167.108"
+port_DEV_SERVER_mock = "8184"
+port_DEV_SERVER_develop = "80"
+slack_channel = ""
+slack_token_id = ""
+env.STL_S3_ARCHIVE_URL=""
