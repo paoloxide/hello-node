@@ -227,11 +227,11 @@ try{
 	node("ansible") {
 		try {  
 			CUSTOM_WORKSPACE2 = pwd()
-			withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'aws-environment-provisioning',
-			usernameVariable: 'AWS_ACCESS', passwordVariable: 'AWS_SECRET']]) {
-			  AWS_ACCESS = env.AWS_ACCESS
-			  AWS_SECRET = env.AWS_SECRET
-			}
+			// withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'aws-environment-provisioning',
+			// usernameVariable: 'AWS_ACCESS', passwordVariable: 'AWS_SECRET']]) {
+			//   AWS_ACCESS = env.AWS_ACCESS
+			//   AWS_SECRET = env.AWS_SECRET
+			// }
 
 			stage "Retrieve Compressed Service"
 				sh "pwd && ls -lart"
