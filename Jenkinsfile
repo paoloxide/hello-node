@@ -241,7 +241,7 @@ try{
 				sh "pwd && ls -lart"
 
 			stage "Checkout Ansible Deployment Playbook"
-				git url: "ssh://git@innersource.accenture.com/adyb/ybusa-ansible-deployment.git", branch: "master", credentialsId: "adop-jenkins-master"
+				git url: "ssh://git@innersource.accenture.com/adyb/node-ansible-deployment.git", branch: "master", credentialsId: "adop-jenkins-master"
 				sh("""  echo [dev_server] > hosts
 						echo ${DEV_SERVER} >> hosts""")
 				sh('cat hosts')
@@ -254,7 +254,7 @@ try{
 					    pwd && ls -lrtah
 					    rm -f ${CUSTOM_WORKSPACE2}/mochawesome-reports.tar
 					    pwd && ls -lrtah
-					    ansible-playbook service_test.yml -i hosts -u ec2-user --extra-vars "service_name=${SERVICE_NAME} service_outbound_port=${SERVICE_OUTBOUND_PORT_MOCK} current_branch=${CURRENT_BRANCH} dev_server=${DEV_SERVER} custom_workspace=${CUSTOM_WORKSPACE} execution_type=${EXECUTION_TYPE} docker_service_name=${DOCKER_SERVICE_NAME}_mock docker_service_tag=${DOCKER_SERVICE_TAG} service_version=${SERVICE_VERSION}"
+					    ansible-playbook service_test.yml -i hosts -u ec2-user --extra-vars "service_name=${SERVICE_NAME} service_inbound_port=${SERVICE_INBOUND_PORT} service_outbound_port=${SERVICE_OUTBOUND_PORT_MOCK} current_branch=${CURRENT_BRANCH} dev_server=${DEV_SERVER} custom_workspace=${CUSTOM_WORKSPACE} execution_type=${EXECUTION_TYPE} docker_service_name=${DOCKER_SERVICE_NAME}_mock docker_service_tag=${DOCKER_SERVICE_TAG} service_version=${SERVICE_VERSION}"
 					    pwd && ls -lrtah
 						
 						ls -lrtah
