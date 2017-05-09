@@ -10,6 +10,7 @@ def SERVICE_NAME
 def SERVICE_VERSION
 def SERVICE_REPOSITORY_URL
 def SERVICE_REPOSITORY_BRANCH
+def SERVICE_INBOUND_PORT
 def SERVICE_OUTBOUND_PORT
 def SONAR_HOME
 def SONAR_SERVER_URL
@@ -154,6 +155,7 @@ try{
 				TOKEN_ID = slack_token_id
 				
 				SERVICE_OUTBOUND_PORT = SERVICE_OUTBOUND_PORT_DEVELOP
+				SERVICE_INBOUND_PORT = port_DEV_SERVER_inbound
 				
 				UNIT_TEST = sh( script: """
 				  if [ -d ./test ]; then
@@ -314,7 +316,7 @@ try{
 				
 				stage "Run Deployment in Playbook"
 					sshagent (credentials: ['ansible-user-key']) {
-					  sh "ansible-playbook service_deploy.yml -i hosts -u ec2-user --extra-vars \"service_name=${SERVICE_NAME} service_outbound_port=${SERVICE_OUTBOUND_PORT} dev_server=${DEV_SERVER} current_branch=${CURRENT_BRANCH} custom_workspace=${CUSTOM_WORKSPACE} execution_type=${EXECUTION_TYPE} docker_service_name=${DOCKER_SERVICE_NAME} docker_service_tag=${DOCKER_SERVICE_TAG} service_version=${SERVICE_VERSION}\" "
+					  sh "ansible-playbook service_deploy.yml -i hosts -u ec2-user --extra-vars \"service_name=${SERVICE_NAME} service_outbound_port=${SERVICE_OUTBOUND_PORT} service_inbound_port=${SERVICE_INBOUND_PORT} dev_server=${DEV_SERVER} current_branch=${CURRENT_BRANCH} custom_workspace=${CUSTOM_WORKSPACE} execution_type=${EXECUTION_TYPE} docker_service_name=${DOCKER_SERVICE_NAME} docker_service_tag=${DOCKER_SERVICE_TAG} service_version=${SERVICE_VERSION}\" "
 				    }
 
 		//		stage "Run Production Deployment in Playbook"

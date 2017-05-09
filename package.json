@@ -1,9 +1,9 @@
 {
-  "name": "hello-node",
-  "description": "Node.js",
+  "name": "liquid-studio-dashboard",
+  "title": "Liquid Studio Dashboard",
   "version": "0.0.1",
-  "private": true,
-  "author": "Copyright 2015 Accenture, All rights reserved.",
+  "homepage": "http://startbootstrap.com/template-overviews/sb-admin-2",
+  "author": "Start Bootstrap",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -27,6 +27,17 @@
   "devDependencies": {
     "mocha": "^3.2.0",
     "should": "^11.1.2",
-    "supertest": "^2.0.1"
+    "supertest": "^2.0.1",
+    "browser-sync": "^2.13.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.10",
+    "gulp-header": "^1.8.7",
+    "gulp-less": "^3.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/BlackrockDigital/startbootstrap-sb-admin-2.git"
   }
 }
