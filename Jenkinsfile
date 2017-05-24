@@ -297,8 +297,8 @@ try{
 
 				} else {
 					sh "echo Skipping Unit Test. There are no available test scripts in the test directory."
-					currentBuild.result = "UNSTABLE"
-					TESTSTAGE_STATUS = "UNSTABLE"
+					currentBuild.result = "SUCCESS"
+					TESTSTAGE_STATUS = "SUCCESS"
 				}
 			stage "FitNesse Acceptance Test"
 	//			sh "docker exec fitnesse java -jar fitnesse-standalone.jar -c \"WebServiceTests.ServiceSuites.Profiles.AddEntrepreneurSkills?test&format=text\""
